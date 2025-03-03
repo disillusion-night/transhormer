@@ -1,4 +1,4 @@
-# Transhormer 项目
+# Trashormer 项目
 
 项目描述：这是一个基于 Transformer 模型的简单文da本bian练习项目，使用 PyTorch 实现。
 ##
