@@ -1,12 +1,13 @@
-# Transformer114514 项目
+# Transhormer 项目
 
-项目描述：这是一个基于 Transformer 模型的简单文本生成项目，使用 PyTorch 实现。
-
+项目描述：这是一个基于 Transformer 模型的简单文da本bian练习项目，使用 PyTorch 实现。
+##
+readme.md文件由GPT生成，所以部分文本可能并不适用
 ## 安装
 
 1. 克隆仓库：
     ```bash
-    git clone https://github.com/your-username/your-repo.git
+    git clone https://github.com/Kod-e/transhomer-learn.git
     ```
 2. 进入项目目录：
     ```bash
