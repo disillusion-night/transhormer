@@ -7,7 +7,7 @@ readme.md文件由GPT生成，所以部分文本可能并不适用
 
 1. 克隆仓库：
     ```bash
-    git clone https://github.com/Kod-e/transhomer-learn.git
+    git clone https://github.com/Kod-e/transhomer.git
     ```
 2. 进入项目目录：
     ```bash
