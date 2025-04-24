@@ -50,6 +50,20 @@ readme.md文件由GPT生成，所以部分文本可能并不适用
     python inference.py
     ```
 
+    
+### 使用例
+
+1. 运行 `inference.py` 进行推理：
+    ```bash
+    python inference.py
+    ```
+2. 输入tokens序列（数字）
+    ``` bash
+    请输入 token 序列（以空格分隔）: 1 7 6 10
+    完整的 token 序列: [1, 7, 6, 10, 5]
+    句子: 李田所在黑色高级轿车食用下北泽野兽府邸
+    ```
+
 ## 文件说明
 
 - `train.py`：用于训练 Transformer 模型。
