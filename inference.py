@@ -12,12 +12,29 @@ def predict_next_token(model, input_tokens):
     return predicted_token
 
 # 加载训练好的模型
-vocab_size = 8 
+vocab_size = 11
 model = Transformer114514(vocab_size, d_model=16)  # 初始化相同结构的模型
 model.load_state_dict(torch.load("llm_model.pth"))  # 加载训练好的权重
 
 
-test_input = [1, 7, 0, 3]  # 李田所在这里大喊大叫
-predicted = predict_next_token(model, test_input)
+# 允许用户输入 token 序列
+user_input = input("请输入 token 序列（以空格分隔）: ")
+user_tokens = list(map(int, user_input.split()))
 
-print(f"预测的下一个 token: {predicted}")
+# 使用用户输入进行推理
+predicted_token = predict_next_token(model, user_tokens)
+
+# 打印完整的句子
+user_tokens.append(predicted_token)
+print(f"完整的 token 序列: {user_tokens}")
+import json
+# 读取 token.json 文件
+with open("token.json", "r", encoding="utf-8") as f:
+    token_dict = json.load(f)
+    sentence = ""
+    for i in range(len(user_tokens)):
+        sentence += token_dict[str(user_tokens[i])]
+        
+    print(f"句子: "+ sentence)
+
+    
