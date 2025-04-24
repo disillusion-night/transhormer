@@ -2,7 +2,7 @@ import torch.nn as nn
 
 class Transformer114514(nn.Module):
 
-    def __init__(self, vocab_size, d_model=16, num_heads=2, num_layers=2):
+    def __init__(self, vocab_size, d_model=32, num_heads=2, num_layers=2):
         super(Transformer114514, self).__init__()
         
         # 纬度转换

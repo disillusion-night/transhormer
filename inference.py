@@ -13,7 +13,7 @@ def predict_next_token(model, input_tokens):
 
 # 加载训练好的模型
 vocab_size = 11
-model = Transformer114514(vocab_size, d_model=16)  # 初始化相同结构的模型
+model = Transformer114514(vocab_size, d_model=32)  # 初始化相同结构的模型
 model.load_state_dict(torch.load("llm_model.pth"))  # 加载训练好的权重
 
 

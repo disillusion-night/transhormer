@@ -32,23 +32,31 @@ class TokenDataset(Dataset):
 
 # 训练模型
 def train_model():
+    # 检查是否有可用的 GPU
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+
     dataset = TokenDataset("train.json")
     dataloader = DataLoader(dataset, batch_size=2, shuffle=True)
 
     vocab_size = 11
-    model = Transformer114514(vocab_size)
+    model = Transformer114514(vocab_size).to(device)  # 将模型移动到 GPU
     optimizer = optim.Adam(model.parameters(), lr=0.001)
     loss_fn = nn.CrossEntropyLoss()
 
-    for epoch in range(800):  # 训练 50 轮
+    for epoch in range(500):  # 训练 500 轮
         for inputs, targets in dataloader:
+            # 将数据移动到 GPU
+            inputs, targets = inputs.to(device), targets.to(device)
+
             optimizer.zero_grad()
-            outputs = model(inputs)
-            loss = loss_fn(outputs, targets)
-            loss.backward()
-            optimizer.step()
+            outputs = model(inputs)  # 模型前向传播
+            loss = loss_fn(outputs, targets)  # 计算损失
+            loss.backward()  # 反向传播
+            optimizer.step()  # 更新参数
         print(f"Epoch {epoch+1}, Loss: {loss.item():.4f}")
 
+    # 保存模型
     torch.save(model.state_dict(), "llm_model.pth")
 
 # 运行训练
